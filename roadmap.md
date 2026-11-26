@@ -27,8 +27,9 @@ When continuing this project in a new session, follow these rules:
 - **Repository:** `/home/devbhartra/Documents/personal-site`
 - **Remote:** `git@github.com:dbhartra/personal-site.git` (`main` branch)
 - **Stack:** **Astro + TypeScript**
-  - *Why:* Zero client JS by default (fast mobile loads & strong Core Web Vitals), pure static HTML for SEO, first-class Cloudflare Pages/Workers adapter, hybrid rendering when we add server-side APIs (Strava, Steam, AI), and islands architecture so we only ship JS where needed.
-- **Domain:** Plan to buy/use a custom domain (e.g., `devbhartra.com` / `.dev`) for SEO.
+  - *Why:* Zero client JS by default (fast mobile loads & strong Core Web Vitals), pure static HTML for SEO, first-class Cloudflare Workers adapter, hybrid rendering when we add server-side APIs (Strava, Steam, AI), and islands architecture so we only ship JS where needed.
+- **Hosting:** **Cloudflare Workers (Static Assets)** via Git integration (`wrangler.jsonc`), live at `https://personal-site.bhartra-d.workers.dev`.
+- **Domain:** Using `*.workers.dev` for now; plan to buy/attach a custom domain (e.g., `devbhartra.com` / `.dev`) later for SEO and zone-level Cloudflare WAF/TLS.
 - **Analytics:** Hybrid approach — a real analytics platform (e.g., PostHog / Cloudflare Web Analytics) + custom event instrumentation built ourselves.
 
 ---
@@ -50,12 +51,12 @@ When continuing this project in a new session, follow these rules:
 - Render clean, semantic, mobile-friendly HTML displaying `"Hi, my name is Dev Bhartra."` (no fancy components, no animations, no CSS frameworks yet).
 - **Done when:** Site runs cleanly on `localhost`, looks clean in mobile viewport DevTools, and is committed & pushed to `main`.
 
-### [ ] Phase 3: Hosting on Cloudflare Pages & Web Security Fundamentals  ← **START HERE NEXT**
-- Deploy the repo to Cloudflare Pages (and attach custom domain + DNS when ready).
-- Learn and configure web security fundamentals: HTTPS/TLS, security headers (`Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`), Cloudflare WAF/DDoS basics, and secret/env-var hygiene.
+### [x] Phase 3: Hosting on Cloudflare Workers & Web Security Fundamentals
+- Deployed repo to **Cloudflare Workers (Static Assets)** via Git integration (`wrangler.jsonc`, `NODE_VERSION=24`, preview builds enabled), live at `https://personal-site.bhartra-d.workers.dev` (custom domain + zone-level WAF/TLS deferred until domain purchase).
+- Configured and verified HTTP security headers via `public/_headers` (`Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`), reviewed Cloudflare DDoS/WAF basics, and updated `.gitignore` for Workers secret hygiene (`.dev.vars`, `.wrangler/`).
 - **Done when:** Live site is accessible from mobile and other devices with verified security headers.
 
-### [ ] Phase 4: SEO Foundations
+### [ ] Phase 4: SEO Foundations  ← **START HERE NEXT**
 - Semantic HTML audit, SSG/SSR verification, `<head>` meta tags, canonical URL, Open Graph / social cards, `robots.txt`, `sitemap.xml`, and JSON-LD `Person` structured data (targeted at ranking for `"Dev Bhartra"`).
 - Set up Google Search Console and submit sitemap.
 - **Done when:** Rich results / structured data validate cleanly and site is submitted for indexing.
