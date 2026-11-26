@@ -44,13 +44,13 @@ When continuing this project in a new session, follow these rules:
 ### [x] Phase 1: Stack & Architecture Decision
 - Selected **Astro + TypeScript** after weighing tradeoffs against Next.js, SvelteKit, and plain HTML/Vite.
 
-### [ ] Phase 2: Barebones "Hello World"  ← **START HERE NEXT**
+### [x] Phase 2: Barebones "Hello World"
 - Scaffold a minimal Astro + TypeScript project inside this existing Git repo.
 - Walk through and understand every generated file (`package.json`, `astro.config.mjs`, `tsconfig.json`, `src/pages/index.astro`).
 - Render clean, semantic, mobile-friendly HTML displaying `"Hi, my name is Dev Bhartra."` (no fancy components, no animations, no CSS frameworks yet).
 - **Done when:** Site runs cleanly on `localhost`, looks clean in mobile viewport DevTools, and is committed & pushed to `main`.
 
-### [ ] Phase 3: Hosting on Cloudflare Pages & Web Security Fundamentals
+### [ ] Phase 3: Hosting on Cloudflare Pages & Web Security Fundamentals  ← **START HERE NEXT**
 - Deploy the repo to Cloudflare Pages (and attach custom domain + DNS when ready).
 - Learn and configure web security fundamentals: HTTPS/TLS, security headers (`Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`), Cloudflare WAF/DDoS basics, and secret/env-var hygiene.
 - **Done when:** Live site is accessible from mobile and other devices with verified security headers.
